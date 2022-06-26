@@ -15,7 +15,6 @@ def load_rawdata(path_to_rawdata):
 def get_interp(report):
     return interpolate.interp1d(report["Time\n(sec.)"], report["bp"], fill_value='extrapolate')
 
-
 def get_tidy_data(rawdata, interp):
     rawdata["bp_esti"] = interp(rawdata.Time)
     return rawdata[["Time", "Signal", "bp_esti"]]
@@ -32,7 +31,6 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--output")
     parser.add_argument("--suffix", default = "")
     args = parser.parse_args()
-
 
     rawd = load_rawdata(args.signal)
     repo = load_report(args.report)
