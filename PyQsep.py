@@ -1,4 +1,3 @@
-from email.contentmanager import raw_data_manager
 import pandas as pd 
 from scipy import interpolate
 
@@ -29,7 +28,7 @@ if __name__ == "__main__":
     parser.add_argument("--signal", required = True)
     parser.add_argument("--report", required = True)
     parser.add_argument("-o", "--output")
-    parser.add_argument("--suffix", default = "")
+    parser.add_argument("--suffix", default = "_bp")
     args = parser.parse_args()
 
     rawd = load_rawdata(args.signal)
