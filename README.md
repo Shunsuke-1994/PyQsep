@@ -1,7 +1,7 @@
 # PyQsep
 a Python script for Qsep100 files.  
 Generates signal-time csv data.  
-input:
+input:  
     - raw signal data(csv)  
     - report file (xlsx)  
 output:  
