@@ -4,6 +4,10 @@ __pycache__/
 *$py.class
 .DS_Store
 
+# jupyter notebooks
+notebooks/
+
+
 # C extensions
 *.so
 

@@ -13,7 +13,7 @@ output:
 
 # Usage
 ```
-python PyQsep.py --signal example/signal.csv --report example/report.xlsx --output example/test.csv
+python pyqsep.py --signal example/signal.csv --report example/report.xlsx --output example/test.csv
 ```
 
 # TODO
