@@ -7,6 +7,9 @@ input:
 output:  
     - csv file containing time/signal/estimated bp  
 
+# Version
+0.2
+
 # Requirements
 - scipy >1.2.1
 - pandas

@@ -2,10 +2,19 @@ import pandas as pd
 from scipy import interpolate
 
 def load_report(path_to_report):
-    report = pd.read_excel(path_to_report, skiprows = 20)
+    df = pd.read_excel(path_to_report).iloc[:, 4:]
+    for i, row in df.iterrows():
+        if row[0] == "No":
+            row_start = i
+            break
+
+    report = df.iloc[row_start+1:, :]
+    report.columns = df.iloc[row_start, :]
+    report = report.reset_index(drop=True)
     report = report[["No", "Time\n(sec.)", "RFU", "PeakArea", "bp", 'PeakStart\n(sec.)', 'PeakEnd\n(sec.)']]
-    report = report[report["bp"] != "<LM"].dropna(axis = 0)
+    report = report[[str(bp).isnumeric() for bp in report["bp"]]].dropna(axis = 0)
     report["bp"] = report["bp"].apply(lambda x: float(x.replace(",", "")))
+    report["Time\n(sec.)"] = report["Time\n(sec.)"].apply(lambda x: float(x))
     return report
 
 def load_rawdata(path_to_rawdata):
